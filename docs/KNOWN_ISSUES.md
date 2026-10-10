@@ -1,0 +1,19 @@
+# KNOWN ISSUES
+- KI-001 RTL: web verified (dir=rtl, layout mirrors, test passes). NATIVE (Android/iOS) NOT verified: `forceRTL` takes effect after reload, so the very first launch after install may be LTR. Verify on a real phone; add reload step if needed.
+- KI-002 RESOLVED in Phase 1: IBM Plex Sans Arabic loaded.
+- KI-003 Expo Go store app may not match SDK 57 (Expo Go tracks latest stable; after SDK 58 stable it will drop 57). If Expo Go refuses the project, use a development build or check docs.expo.dev. Not verifiable in sandbox.
+- KI-004 `npm install` shows a deprecated `uuid@7` warning from a transitive dependency; harmless.
+- KI-005 Icons/splash are template placeholders.
+- KI-006 Never tested on a real phone.
+- KI-007 BottomSheet has an enter animation but no exit animation (React Native Modal unmounts immediately). Acceptable now; revisit if UX review wants it.
+- KI-008 Toast is a single slot (new toast replaces the old one) and is not swipe-dismissable.
+- KI-009 Light theme only. Dark mode not implemented (tokens are centralised for later).
+- KI-010 `/dev/components` is a developer-only preview route and ships in the app; gate/remove before release.
+- KI-011 Card/button visuals are placeholders until the brand identity exists; no icons yet (decide icon set in Phase 3).
+- KI-012 Session is in memory only: reloading the page/app signs the user out. Persistence (secure storage) comes with real auth in Phase 22.
+- KI-013 `errorKey` is one shared field in the auth store; stacked screens (login under verify) both render it. Harmless now (cleared on navigation) but per-screen error state is cleaner.
+- KI-014 `DEMO_MODE = true` shows demo phone numbers + the OTP on the login screen. MUST be false before any release.
+- KI-015 `Stack.Protected` is client-side only and has known web quirks (address bar after redirects). Verified no content leak in tests; real protection = RLS.
+- KI-016 DB drafts: executed ONLY on plain PostgreSQL 16 with hand-written Supabase stand-ins, never on real Supabase. Gap: after signup nothing copies the verified phone from `auth.users` into `profiles.phone` (policy forces client insert with phone NULL) -> stored phone stays NULL. Needs a trigger/RPC in Phase 22 reconciliation.
+- KI-017 DB drafts not yet reconciled with frontend naming (DB `reviews` vs UI "ratings"; DB `account_status` has an extra `deleted`). Phone CHECK in DB matches `normalizeJordanMobile` exactly.
+- KI-018 Native (Android/iOS) behaviour of auth screens still untested (keyboard types, one-time-code autofill, RTL on first launch).

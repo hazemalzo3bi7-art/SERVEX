@@ -1,0 +1,12 @@
+# PROJECT STATUS
+- **Last updated:** 2026-10-01
+- **Current phase:** PHASE 2 — Authentication & Roles (demo) — **COMPLETE** (Phases 0-1 complete)
+- **Current step:** Phase 3 (Customer Home) not started: needs the UX study first, plus owner answers on brand name and SQL base
+- **Completed (Phase 2):** demo phone+OTP auth, roles, guards, 24 unit tests, 10-step e2e test, 2 real bugs fixed; backend SQL drafts parked and validated on PostgreSQL 16 (22/22 behaviour checks on claude22).
+- **Completed (Phase 1):** tokens, Arabic font, RTL shell, UI kit (8 components), dev preview, 2 runtime tests.
+- **Completed (Phase 0):** environment inspection; Expo SDK 57 project; folder structure; i18n skeleton (ar/en); 3 role route stubs; ESLint+TS config; .env.example; full docs set; git checkpoints.
+- **In progress:** nothing
+- **Next task:** Phase 1 — see SESSION_HANDOFF "Exact Next Task"
+- **Blockers:** none. Owner decisions needed later: brand name, payment gateway, map provider (see ROADMAP).
+- **Known bugs:** see KNOWN_ISSUES.md (no functional bugs; native RTL unverified KI-001)
+- **Latest successful test:** 2026-10-01 — tsc, eslint, 24 unit tests, auth_smoke 10/10, design_smoke, DB behaviour checks 22/22 (see TESTING.md)
